@@ -1,4 +1,4 @@
-# CEO Brain — Personal Knowledge OS for Executives
+# M5L Executive OS — Personal Knowledge OS for Executives
 
 A structured knowledge base and management system built on top of [Claude Code](https://claude.ai/claude-code). It ingests meetings, tracks people, manages actions, and surfaces risks — all through natural conversation.
 
@@ -6,7 +6,7 @@ A structured knowledge base and management system built on top of [Claude Code](
 
 ## What This Is
 
-CEO Brain turns Claude Code into a personal chief of staff. You paste a meeting link or transcript, and it automatically:
+M5L Executive OS turns Claude Code into a personal chief of staff. You paste a meeting link or transcript, and it automatically:
 
 - Saves a raw transcript
 - Extracts actions, decisions, and risks
