@@ -275,9 +275,9 @@ When displaying actions, reviews, or any list of tasks — always pretty print:
 
 ## Friday Reminder
 
-If today is a Friday, remind the user at the start of the conversation to push any changes in `~/.claude` to GitLab. Also add an action to the current week's actions file: "Push ~/.claude changes to GitLab" — so it can be checked off.
+If today is a Friday, remind the user at the start of the conversation to push any uncommitted changes to remote and do any end-of-week housekeeping they have configured. Also add an action to the current week's actions file: "End-of-week push and housekeeping" — so it can be checked off.
 
-When preparing the weekly brief on a Monday, check the previous week's actions file for the "Push ~/.claude changes to GitLab" action. If it's missing (e.g. the user had a day off), flag it and ask whether it should be added retrospectively.
+When preparing the weekly brief on a Monday, check the previous week's actions file for the "End-of-week push and housekeeping" action. If it's missing (e.g. the user had a day off), flag it and ask whether it should be added retrospectively.
 
 ---
 
@@ -309,7 +309,7 @@ When you say **"push updates"** or **"pu"**, do the following without asking for
 1. `git add .`
 2. `git status` — summarise what's changed in plain English
 3. If **content only** (meetings, people, actions, briefs): commit and push directly to main
-4. If **structural changes are included** (CLAUDE.md, commands, folders, conventions): create a branch, commit, push, and display the GitLab MR link
+4. If **structural changes are included** (CLAUDE.md, commands, folders, conventions): create a branch, commit, push, and display the GitHub PR link
 
 Branch naming for structural changes:
 | Type | Pattern | Example |
@@ -317,7 +317,7 @@ Branch naming for structural changes:
 | Config / CLAUDE.md | `config/description` | `config/weekly-brief-system` |
 | New commands / features | `feature/description` | `feature/daily-brief-commands` |
 
-Review and merge structural changes via GitLab. Do not merge to main directly.
+Review and merge structural changes via GitHub. Do not merge to main directly.
 
 ---
 
