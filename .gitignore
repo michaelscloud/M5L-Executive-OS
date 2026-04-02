@@ -6,6 +6,9 @@
 # Claude Code local settings (may contain machine-specific paths)
 .claude/settings.local.json
 
+# Granola API key — never commit this
+.claude/granola-api-key
+
 # Editor directories
 .idea/
 .vscode/
