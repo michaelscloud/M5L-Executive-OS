@@ -225,4 +225,4 @@ The `CLAUDE.md` is designed to be modified. Some things you might want to change
 
 ## Licence
 
-MIT — use it, fork it, adapt it.
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — use it, fork it, adapt it. Not for commercial use.
