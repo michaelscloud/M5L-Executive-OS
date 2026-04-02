@@ -1,4 +1,4 @@
-# CEO Brain — Claude Code Instructions
+# M5L Executive OS — Claude Code Instructions
 
 This repo is your personal knowledge base and management system. It tracks meetings, people, projects, actions, and risks.
 
