@@ -1,6 +1,6 @@
-# M5L Executive OS — Claude Code Instructions
+# Job Hunt OS — Claude Code Instructions
 
-This repo is your personal knowledge base and management system. It tracks meetings, people, projects, actions, and risks.
+This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters, interviews, contacts, actions, and risks.
 
 ---
 
@@ -8,29 +8,99 @@ This repo is your personal knowledge base and management system. It tracks meeti
 
 | Folder | Purpose |
 |--------|---------|
-| `/meetings` | Processed meeting notes (structured summaries) |
+| `/meetings` | Interview notes and networking call summaries |
 | `/meetings/transcripts` | Raw unedited transcripts — never modify these |
-| `/people` | One file per person — family, team, clients, network |
-| `/projects` | One file per initiative or project |
+| `/people` | One file per person — recruiters, hiring managers, contacts |
+| `/projects` | One file per job application |
+| `/cv` | Master CV and tailored versions per application |
+| `/cover-letters` | Cover letters, one per application |
 | `/actions` | Open and closed action items, organised by week |
 | `/weekly` | Weekly prep notes and retrospectives |
 | `/daily` | Daily briefs — one per weekday, one combined for weekends |
-| `/risks` | Active risk register |
+| `/risks` | Active risk register — applications going cold, deadlines, etc. |
 
 ---
 
 ## File Naming Conventions
 
-- **Meetings:** `YYYY-MM-DD-<short-title>.md` e.g. `2026-03-13-board-checkin.md`
+- **Meetings:** `YYYY-MM-DD-<short-title>.md` e.g. `2026-03-13-interview-jaguar.md`
 - **Transcripts:** `YYYY-MM-DD-<short-title>.transcript.md`
 - **People:** `<firstname-lastname>.md` e.g. `sarah-jones.md`
-- **Projects:** `<project-slug>.md` e.g. `series-a-prep.md`
+- **Applications (projects):** `<company-role-slug>.md` e.g. `jaguar-grad-engineer.md`
+- **CV (master):** `cv/master-cv.md`
+- **CV (tailored):** `cv/<company-role-slug>.md` e.g. `cv/jaguar-grad-engineer.md`
+- **Cover letter:** `cover-letters/<company-role-slug>.md` e.g. `cover-letters/jaguar-grad-engineer.md`
 - **Actions:** `actions-YYYY-Www.md` e.g. `actions-2026-W11.md`
 - **Weekly review:** `weekly/YYYY-Www.md` e.g. `weekly/2026-W11.md`
 - **Weekly brief:** `weekly/YYYY-Www-brief.md` e.g. `weekly/2026-W13-brief.md`
 - **Daily brief:** `daily/YYYY-MM-DD.md` e.g. `daily/2026-03-26.md`
 - **Weekend brief:** `daily/YYYY-Www-weekend.md` e.g. `daily/2026-W13-weekend.md`
 - **Risks:** `risks/active.md`
+
+---
+
+## Application Pipeline
+
+### Status progression
+`Researching → Applied → Screening → Interviewing → Offer → Accepted / Declined / Ghosted`
+
+### When a new job is added (paste a job posting or URL):
+1. Create a project file at `projects/<company-role-slug>.md` using the Application Project Template below
+2. Create a tailored CV at `cv/<company-role-slug>.md` based on `cv/master-cv.md` — highlight relevant experience, reorder sections if needed, match keywords from the job description
+3. Create a cover letter at `cover-letters/<company-role-slug>.md`
+4. Add an action to the current week's actions file: "Apply to [Company] — [Role]"
+5. Report back with: what was changed in the CV, what angle the cover letter takes, and any suggestions for the application
+
+### CV Tailoring Rules
+- Always start from `cv/master-cv.md` — never invent experience
+- Reorder bullet points to surface most relevant experience first
+- Mirror language from the job description where it's honest to do so
+- Flag any gaps or weaknesses in the application and suggest how to address them
+- Keep to 1–2 pages max
+- Note what was changed and why at the top of the tailored CV file as a comment block
+
+### Cover Letter Rules
+- Keep to 3–4 short paragraphs: hook, relevant experience, why this company, close
+- Tone: confident but not arrogant, specific not generic
+- Must reference something real about the company — not boilerplate
+- No "I am writing to apply for..." openers — lead with something stronger
+- Flag if Connor needs to research the company more before the letter will land well
+
+### Application Project Template
+
+```markdown
+# <Company> — <Role Title>
+**Status:** Researching | Applied | Screening | Interviewing | Offer | Accepted | Declined | Ghosted
+**Applied:** YYYY-MM-DD (or "Not yet")
+**Closing date:** YYYY-MM-DD (or "Unknown")
+**Source:** [Job board / referral / direct]
+**Job posting:** [URL or "pasted"]
+**CV used:** [cv/<slug>.md]
+**Cover letter:** [cover-letters/<slug>.md]
+
+## Role Summary
+<2–3 sentence summary of what the role is and why it's interesting>
+
+## Why This Role
+<What appeals about this company/role specifically>
+
+## Fit Assessment
+<Where Connor is a strong fit, where there are gaps>
+
+## Interview Stages
+| Stage | Date | Format | Notes |
+|-------|------|--------|-------|
+
+## Decisions Log
+| Date | Decision | Notes |
+|------|----------|-------|
+
+## Open Actions
+<Kept in sync with /actions>
+
+## Notes
+<Running context — newest first>
+```
 
 ---
 
@@ -46,10 +116,10 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
    - Use Granola metadata to enrich and cross-reference the transcript where useful
 
 2. **Classify** the meeting type:
-   - `1:1` → file under `meetings/YYYY-MM-DD-1on1-<person>.md`
-   - `client` → file under `meetings/YYYY-MM-DD-<client>-<topic>.md`
-   - `advisory` → file under `meetings/YYYY-MM-DD-advisory-<org>.md`
-   - `internal` → file under `meetings/YYYY-MM-DD-internal-<topic>.md`
+   - `interview` → file under `meetings/YYYY-MM-DD-interview-<company>.md`
+   - `screening` → file under `meetings/YYYY-MM-DD-screening-<company>.md`
+   - `networking` → file under `meetings/YYYY-MM-DD-networking-<person-or-org>.md`
+   - `recruiter` → file under `meetings/YYYY-MM-DD-recruiter-<agency-or-company>.md`
    - `other` → file under `meetings/YYYY-MM-DD-<description>.md`
 
 3. **Save the raw transcript first** — before any analysis:
@@ -84,7 +154,7 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
    - Update Context if anything new and relevant was learned
    - Add any open actions to their Open Actions section
 
-8. **Update `/projects` files** — for any project discussed:
+8. **Update `/projects` files** — for any application discussed:
    - Add decisions to the Decisions Log
    - Update Open Actions
    - Update Notes with any relevant status changes
@@ -105,12 +175,12 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 
 ## Other Key Behaviours
 
-### When asked to prep for a meeting:
-1. Check `/meetings` for previous meetings with the same attendees or topic
-2. Check `/people` files for context on attendees
-3. Check `/actions` for open items involving those people or projects
-4. Check `/projects` for relevant project status
-5. Produce a structured prep brief: context, open items, suggested agenda, things to watch for
+### When asked to prep for an interview:
+1. Read the application project file in `/projects`
+2. Check `/people` files for context on interviewers if known
+3. Check `/meetings` for any previous interactions with this company
+4. Check `/actions` for any open items related to this application
+5. Produce a structured prep brief: role summary, likely question areas, things to emphasise, things to watch for, suggested questions to ask them
 
 ### When asked to "run my weekly review" or "weekly review":
 1. Read the current week's actions file
@@ -132,38 +202,36 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 2. Scan recent meetings they appeared in
 3. Summarise: recent interactions, open actions, any flagged items
 
-### When asked about a project:
-1. Read the `/projects` file
-2. Find related meetings
+### When asked about an application:
+1. Read the `/projects` file for that application
+2. Find related meetings and interviews
 3. Summarise: current status, recent decisions, open actions, risks if noted
 
 ---
 
 ## Risk Detection
 
-### Flag delivery risks when you see:
-- Missed deadlines or slipping timelines
-- Same blocker appearing in multiple meetings
-- Scope changes or shifting requirements
-- Work items with no progress across multiple meetings
-- Unclear ownership of important items
+### Flag application risks when you see:
+- No response after more than 2 weeks post-application
+- Interview stages stalling or being rescheduled repeatedly
+- Offer deadlines approaching with no decision made
+- Multiple applications rejected at the same stage (pattern worth noting)
 
-### Flag relationship / people risks when you see:
-- Concerns or frustrations repeated across multiple conversations
-- Negotiation signals — hesitation, pushback, or stalling on key terms
-- Dependency risks — a project blocked on one person or one decision
-- Retention signals in advisory or partnership conversations
+### Flag opportunity risks when you see:
+- Role closing date approaching and application not yet submitted
+- A strong-fit role with a gap in the CV that needs addressing
+- Dependency on one application with no pipeline backup
 
 ### Risk format — append to `risks/active.md`:
 ```
 ### [Short Risk Title] — [low/medium/high]
-- **Type:** delivery | relationship | dependency
-- **Project:** [project slug]
+- **Type:** application | opportunity | dependency
+- **Project:** [application slug]
 - **Person:** [name, if relevant]
 - **First noted:** YYYY-MM-DD
 - **Last updated:** YYYY-MM-DD
 - **Description:** What the risk is
-- **Evidence:** Links to meeting notes where signals appeared
+- **Evidence:** Links to meeting notes or project files
 - **Suggested action:** What might help
 ```
 
@@ -200,15 +268,16 @@ Whenever an action is edited — owner change, due date, description — also up
 ```markdown
 # <Full Name>
 **Role:** <their role>
-**Team / Org:** <team or company>
-**Relationship:** Family | Direct report | Client | Advisor | Investor | Partner | Network
+**Company / Org:** <company>
+**Relationship:** Recruiter | Hiring Manager | Contact | Interviewer | Network
 
 ## Contact
 - Email:
+- LinkedIn:
 - Phone:
 
 ## Context
-<Running notes — working style, priorities, relationship history, anything useful>
+<Running notes — how we connected, their focus, anything useful>
 
 ## Open Actions
 <Kept in sync with /actions>
@@ -221,26 +290,7 @@ Whenever an action is edited — owner change, due date, description — also up
 
 ## Project File Format
 
-```markdown
-# <Project Name>
-**Status:** Active | On Hold | Complete
-**Owner:** <name>
-**Category:** <category>
-**Started:** <date>
-
-## Objective
-<What this project is trying to achieve>
-
-## Decisions Log
-| Date | Decision | Made By |
-|------|----------|---------|
-
-## Open Actions
-<Kept in sync with /actions>
-
-## Notes
-<Running context — newest first>
-```
+Use the Application Project Template defined in the Application Pipeline section above.
 
 ---
 
@@ -323,20 +373,18 @@ Review and merge structural changes via GitHub. Do not merge to main directly.
 
 ## Owner Context
 
-> **This section is the most important thing to personalise.** Fill it in before you start — it shapes how Claude understands your world and prioritises information.
-
-This brain belongs to **[Your Name]** — [one sentence describing your role, what you're building, and your current focus].
+This brain belongs to **Connor Daly** — a 2025 automotive and motorsport engineering graduate actively hunting for entry/graduate level engineering roles, primarily in the automotive sector but open to adjacent industries.
 
 **Key relationships:**
-- [Person name] — [their role and why they matter to you]
-- [Person name] — [their role and why they matter to you]
-- [Add as many as relevant]
+- None yet — update as recruiters and hiring managers are added
 
 **Active priorities:**
-- [Priority 1 — e.g. "Series A fundraising — target close Q3 2026"]
-- [Priority 2 — e.g. "Product launch — new enterprise tier"]
-- [Priority 3]
+- Land first graduate engineering role — primary focus, automotive sector preferred
+- Build out application pipeline — CV tailoring, cover letters, tracking progress per company
+- Networking — grow contacts in the automotive and engineering space
 
 **Preferences:**
-- [Communication style — e.g. "Direct and concise", "British English spelling"]
-- [Any other working preferences Claude should know]
+- Friendly, conversational tone
+- Proactively suggest improvements — to CVs, cover letters, applications, and the system itself
+- British English spelling
+- Be direct about what's working and what isn't in applications
