@@ -38,7 +38,7 @@ Entry-level tech support with a clear ownership model — incidents are owned en
 | 2026-04-08 | Applied | Via Apex Elite; client company identity unknown |
 
 ## Open Actions
-- [ ] #3 Ask Apex Elite for the name of the client company before assessment day | Owner: Connor | Due: 2026-04-13
+- [ ] #3 Ask Apex Elite for the name of the client company before assessment day | Owner: Connor | Due: 2026-04-17
 
 ## Notes
 *2026-04-08 — Application added. Assessment day April 14th. Client company identity unknown — worth asking Apex Elite for the company name before the assessment day to allow better prep.*

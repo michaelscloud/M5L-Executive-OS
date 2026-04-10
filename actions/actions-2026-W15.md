@@ -3,7 +3,8 @@
 ## Open
 
 - [x] #2 Apply to Apex Elite — Graduate Support Engineer | Owner: Connor | Closed: 2026-04-08
-- [ ] #3 Ask Apex Elite for the name of the client company before assessment day | Owner: Connor | Due: 2026-04-13 | Source: [apex-elite-support-engineer](../projects/apex-elite-support-engineer.md)
+- [ ] #3 Ask Apex Elite for the name of the client company before assessment day | Owner: Connor | Due: 2026-04-17 | Source: [apex-elite-support-engineer](../projects/apex-elite-support-engineer.md)
+- [ ] #4 End-of-week push and housekeeping | Owner: Connor | Due: 2026-04-11
 
 ## Closed This Week
 
