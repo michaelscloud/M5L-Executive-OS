@@ -21,10 +21,6 @@ Display it. Do not modify it — weekly briefs are frozen on creation.
 ### If the file does not exist (current week only)
 Create it using the format below, then display it.
 
-0. **Ask first** — before pulling any data, ask:
-   > "Before I put the brief together — anything important on your radar this week that hasn't made it into the brain yet? Deadlines, reminders, tasks you're holding in your head?"
-   Wait for a response. If the user provides items, add them as open actions to the current week's actions file before proceeding. Then continue with the steps below.
-
 1. **Check Google Calendar** (if available) for meetings this week — list day, time, title, key attendees
 2. **Read the current week's actions file** (`actions/actions-YYYY-Www.md`) — extract all open actions
 3. **Read previous weeks' action files** — find any overdue open actions (due date has passed)
