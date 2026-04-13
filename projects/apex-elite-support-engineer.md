@@ -1,5 +1,5 @@
 # Apex Elite (Client) — Graduate Support Engineer
-**Status:** Applied
+**Status:** Declined
 **Applied:** 2026-04-08
 **Closing date:** Unknown — Assessment Day 2026-04-14
 **Source:** Job board
@@ -36,9 +36,11 @@ Entry-level tech support with a clear ownership model — incidents are owned en
 | Date | Decision | Notes |
 |------|----------|-------|
 | 2026-04-08 | Applied | Via Apex Elite; client company identity unknown |
+| 2026-04-13 | Declined | Email received — moving forward with a different candidate |
 
 ## Open Actions
-- [ ] #3 Ask Apex Elite for the name of the client company before assessment day | Owner: Connor | Due: 2026-04-17
+- [x] #3 Ask Apex Elite for the name of the client company before assessment day | Owner: Connor | Closed: 2026-04-13 (moot — application declined)
 
 ## Notes
+*2026-04-13 — Declined via email. Moving forward with a different candidate.*
 *2026-04-08 — Application added. Assessment day April 14th. Client company identity unknown — worth asking Apex Elite for the company name before the assessment day to allow better prep.*
