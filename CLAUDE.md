@@ -154,7 +154,7 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
    - Update Context if anything new and relevant was learned
    - Add any open actions to their Open Actions section
 
-8. **Update `/projects` files** — for any project discussed:
+8. **Update `/projects` files** — for any application discussed:
    - Add decisions to the Decisions Log
    - Update Open Actions
    - Update Notes with any relevant status changes
@@ -175,12 +175,12 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 
 ## Other Key Behaviours
 
-### When asked to prep for a meeting:
-1. Check `/meetings` for previous meetings with the same attendees or topic
-2. Check `/people` files for context on attendees
-3. Check `/actions` for open items involving those people or projects
-4. Check `/projects` for relevant project status
-5. Produce a structured prep brief: context, open items, suggested agenda, things to watch for
+### When asked to prep for an interview:
+1. Read the application project file in `/projects`
+2. Check `/people` files for context on interviewers if known
+3. Check `/meetings` for any previous interactions with this company
+4. Check `/actions` for any open items related to this application
+5. Produce a structured prep brief: role summary, likely question areas, things to emphasise, things to watch for, suggested questions to ask them
 
 ### When asked to "run my weekly review" or "weekly review":
 1. Read the current week's actions file
@@ -202,38 +202,36 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 2. Scan recent meetings they appeared in
 3. Summarise: recent interactions, open actions, any flagged items
 
-### When asked about a project:
-1. Read the `/projects` file
-2. Find related meetings
+### When asked about an application:
+1. Read the `/projects` file for that application
+2. Find related meetings and interviews
 3. Summarise: current status, recent decisions, open actions, risks if noted
 
 ---
 
 ## Risk Detection
 
-### Flag delivery risks when you see:
-- Missed deadlines or slipping timelines
-- Same blocker appearing in multiple meetings
-- Scope changes or shifting requirements
-- Work items with no progress across multiple meetings
-- Unclear ownership of important items
+### Flag application risks when you see:
+- No response after more than 2 weeks post-application
+- Interview stages stalling or being rescheduled repeatedly
+- Offer deadlines approaching with no decision made
+- Multiple applications rejected at the same stage (pattern worth noting)
 
-### Flag relationship / people risks when you see:
-- Concerns or frustrations repeated across multiple conversations
-- Negotiation signals — hesitation, pushback, or stalling on key terms
-- Dependency risks — a project blocked on one person or one decision
-- Retention signals in advisory or partnership conversations
+### Flag opportunity risks when you see:
+- Role closing date approaching and application not yet submitted
+- A strong-fit role with a gap in the CV that needs addressing
+- Dependency on one application with no pipeline backup
 
 ### Risk format — append to `risks/active.md`:
 ```
 ### [Short Risk Title] — [low/medium/high]
-- **Type:** delivery | relationship | dependency
-- **Project:** [project slug]
+- **Type:** application | opportunity | dependency
+- **Project:** [application slug]
 - **Person:** [name, if relevant]
 - **First noted:** YYYY-MM-DD
 - **Last updated:** YYYY-MM-DD
 - **Description:** What the risk is
-- **Evidence:** Links to meeting notes where signals appeared
+- **Evidence:** Links to meeting notes or project files
 - **Suggested action:** What might help
 ```
 
@@ -270,15 +268,16 @@ Whenever an action is edited — owner change, due date, description — also up
 ```markdown
 # <Full Name>
 **Role:** <their role>
-**Team / Org:** <team or company>
-**Relationship:** Family | Direct report | Client | Advisor | Investor | Partner | Network
+**Company / Org:** <company>
+**Relationship:** Recruiter | Hiring Manager | Contact | Interviewer | Network
 
 ## Contact
 - Email:
+- LinkedIn:
 - Phone:
 
 ## Context
-<Running notes — working style, priorities, relationship history, anything useful>
+<Running notes — how we connected, their focus, anything useful>
 
 ## Open Actions
 <Kept in sync with /actions>
@@ -291,26 +290,7 @@ Whenever an action is edited — owner change, due date, description — also up
 
 ## Project File Format
 
-```markdown
-# <Project Name>
-**Status:** Active | On Hold | Complete
-**Owner:** <name>
-**Category:** <category>
-**Started:** <date>
-
-## Objective
-<What this project is trying to achieve>
-
-## Decisions Log
-| Date | Decision | Made By |
-|------|----------|---------|
-
-## Open Actions
-<Kept in sync with /actions>
-
-## Notes
-<Running context — newest first>
-```
+Use the Application Project Template defined in the Application Pipeline section above.
 
 ---
 

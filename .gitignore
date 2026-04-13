@@ -12,6 +12,7 @@
 # Editor directories
 .idea/
 .vscode/
+.obsidian/
 
 # Temporary files
 *.tmp
