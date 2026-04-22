@@ -2,6 +2,7 @@
 
 > Risks are appended here automatically during meeting ingestion.
 > Review and resolve risks manually — Claude will never remove a risk on its own.
+> When a risk is resolved, move it to `closed.md` with a **Closed:** date and brief resolution note.
 
 ---
 
