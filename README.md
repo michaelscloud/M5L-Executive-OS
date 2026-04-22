@@ -105,14 +105,24 @@ That's it. Claude will read `CLAUDE.md` and be ready to go.
 
 ```
 /
-├── CLAUDE.md                  # The brain — system instructions for Claude
-├── meetings/                  # Processed meeting notes
-│   └── transcripts/           # Raw unedited transcripts (never modified)
-├── people/                    # One file per person
-├── projects/                  # One file per initiative
-├── actions/                   # Weekly action registers
-├── weekly/                    # Weekly prep notes and retros
-└── risks/                     # Active risk register
+├── CLAUDE.md                      # The brain — system instructions for Claude
+├── meetings/                      # Processed meeting notes
+│   ├── transcripts/               # Raw unedited transcripts (never modified)
+│   │   └── archive/YYYY/MM/       # Archived transcripts (>28 days)
+│   └── archive/YYYY/MM/           # Archived meeting notes (>28 days)
+├── people/                        # One file per person
+│   └── archive/YYYY/MM/           # Archived (dormant relationships — manual)
+├── projects/                      # One file per initiative
+│   └── archive/YYYY/MM/           # Archived (completed/abandoned — manual)
+├── actions/                       # Weekly action registers
+│   └── archive/YYYY/MM/           # Archived weeks (>28 days old)
+├── weekly/                        # Weekly prep notes and retros
+│   └── archive/YYYY/MM/           # Archived weeks (>6 weeks old)
+├── daily/                         # Daily and weekend briefs
+│   └── archive/YYYY/MM/           # Archived briefs (>28 days)
+└── risks/
+    ├── active.md                  # Live risk register
+    └── closed.md                  # Resolved / closed risks
 ```
 
 ### File naming

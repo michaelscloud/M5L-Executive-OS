@@ -17,7 +17,8 @@ This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters
 | `/actions` | Open and closed action items, organised by week |
 | `/weekly` | Weekly prep notes and retrospectives |
 | `/daily` | Daily briefs — one per weekday, one combined for weekends |
-| `/risks` | Active risk register — applications going cold, deadlines, etc. |
+| `/risks` | `active.md` — live risks; `closed.md` — resolved risks |
+| `<folder>/archive/YYYY/MM/` | Archived files — see Archiving section |
 
 ---
 
@@ -35,7 +36,8 @@ This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters
 - **Weekly brief:** `weekly/YYYY-Www-brief.md` e.g. `weekly/2026-W13-brief.md`
 - **Daily brief:** `daily/YYYY-MM-DD.md` e.g. `daily/2026-03-26.md`
 - **Weekend brief:** `daily/YYYY-Www-weekend.md` e.g. `daily/2026-W13-weekend.md`
-- **Risks:** `risks/active.md`
+- **Active risks:** `risks/active.md`
+- **Closed risks:** `risks/closed.md`
 
 ---
 
@@ -224,7 +226,7 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 - Dependency risks — a project blocked on one person or one decision
 - Retention signals in advisory or partnership conversations
 
-### Risk format — append to `risks/active.md`:
+### Risk format — append to `risks/active.md`; move to `risks/closed.md` when resolved:
 ```
 ### [Short Risk Title] — [low/medium/high]
 - **Type:** delivery | relationship | dependency
@@ -241,7 +243,9 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 
 ## Action Item Format
 
-Each action has a sequential number (`#N`) scoped to its week, starting at #1. Numbers never change once assigned — new actions added during the week continue from the highest existing number.
+Each action has a sequential number scoped to its week, starting at 1. The number is always written with a week prefix: `W16#1`, `W16#2`, etc. Numbers never change once assigned — new actions added during the week continue from the highest existing number.
+
+Use the short form `#N` only within the actions file itself (where the week is already clear from the heading). Everywhere else — people files, project files, meeting notes, cross-references — always use the full `W16#N` form to avoid ambiguity.
 
 ```
 - [ ] #N <action description> | Owner: <name> | Due: <date or "TBC"> | Source: [meeting title](path/to/meeting.md)
@@ -343,11 +347,63 @@ When displaying actions, reviews, or any list of tasks — always pretty print:
 
 ---
 
+## Session Start
+
+At the start of every conversation, remind the user to pull if they haven't already:
+
+```
+git pull
+```
+
+This is important if the repo is used across multiple devices and either may have changes.
+
+Also check whether a daily brief exists for today (`daily/YYYY-MM-DD.md`). If it does not, prompt: "No daily brief yet — want me to run `/db`?" Do not create it automatically; wait for confirmation.
+
+---
+
 ## Friday Reminder
 
-If today is a Friday, remind the user at the start of the conversation to push any uncommitted changes to remote and do any end-of-week housekeeping they have configured. Also add an action to the current week's actions file: "End-of-week push and housekeeping" — so it can be checked off.
+If today is a Friday, remind the user at the start of the conversation to push any uncommitted changes to remote and do any end-of-week housekeeping. Also add an action to the current week's actions file: "End-of-week push and housekeeping" — so it can be checked off.
 
 When preparing the weekly brief on a Monday, check the previous week's actions file for the "End-of-week push and housekeeping" action. If it's missing (e.g. the user had a day off), flag it and ask whether it should be added retrospectively.
+
+Also on Fridays — run the archiving check (see Archiving below). If the previous Friday's archive was missed, flag it at the start of the next session and offer to run it then.
+
+---
+
+## Archiving
+
+Files are archived every Friday to keep the active file structure readable. Each subfolder uses an `archive/YYYY/MM/` path.
+
+### Archive locations
+
+| Folder | Archive path |
+|--------|-------------|
+| `meetings/` | `meetings/archive/YYYY/MM/` |
+| `meetings/transcripts/` | `meetings/transcripts/archive/YYYY/MM/` |
+| `actions/` | `actions/archive/YYYY/MM/` |
+| `weekly/` | `weekly/archive/YYYY/MM/` |
+| `daily/` | `daily/archive/YYYY/MM/` |
+| `people/` | `people/archive/YYYY/MM/` |
+| `projects/` | `projects/archive/YYYY/MM/` |
+
+### Archiving rules
+
+| Content | Archive when |
+|---------|-------------|
+| Daily briefs (`daily/`) | File date > 28 days ago |
+| Meeting notes (`meetings/`, `meetings/transcripts/`) | File date > 28 days ago |
+| Actions files (`actions/`) | Week end date > 28 days ago |
+| Weekly notes/briefs (`weekly/`) | Week end date > 6 weeks ago |
+| People files (`people/`) | Manual only — when a relationship becomes dormant |
+| Project files (`projects/`) | Manual only — when a project completes or is abandoned |
+
+### How to archive on Fridays
+
+1. Identify files eligible for archiving based on the rules above
+2. Move each file to its `archive/YYYY/MM/` path, where YYYY/MM is taken from the **file's own date** (not today)
+3. Confirm what was moved
+4. Commit as a content update directly to main
 
 ---
 
