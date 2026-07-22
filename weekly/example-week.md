@@ -15,15 +15,15 @@ Productive week. Acme Corp kick-off completed successfully — scope agreed and 
 - Investor: Proceeding to term sheet
 
 ## Actions Opened
-- #1 Send revised roadmap to Sarah Jones
-- #2 Review Q2 budget
-- #3 Follow up on term sheet
+- W12#1 Send revised roadmap to Sarah Jones
+- W12#2 Review Q2 budget
+- W12#3 Follow up on term sheet
 
 ## Actions Closed
-- #4 Share product deck with Sarah
+- W12#4 Share product deck with Sarah
 
 ## Risks Flagged
 - Acme engineering bandwidth — medium
 
 ## Carried Forward
-- #2 Q2 budget review — no meeting scheduled yet
+- W12#2 Q2 budget review — no meeting scheduled yet

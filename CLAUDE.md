@@ -1,6 +1,6 @@
-# Job Hunt OS — Claude Code Instructions
+# M5L Executive OS — Claude Code Instructions
 
-This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters, interviews, contacts, actions, and risks.
+This repo is your personal knowledge base and management system. It tracks meetings, people, projects, actions, and risks.
 
 ---
 
@@ -8,101 +8,33 @@ This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters
 
 | Folder | Purpose |
 |--------|---------|
-| `/meetings` | Interview notes and networking call summaries |
+| `/meetings` | Processed meeting notes (structured summaries) |
 | `/meetings/transcripts` | Raw unedited transcripts — never modify these |
-| `/people` | One file per person — recruiters, hiring managers, contacts |
-| `/projects` | One file per job application |
-| `/cv` | Master CV and tailored versions per application |
-| `/cover-letters` | Cover letters, one per application |
+| `/people` | One file per person — family, team, clients, network |
+| `/projects` | One file per initiative or project |
 | `/actions` | Open and closed action items, organised by week |
 | `/weekly` | Weekly prep notes and retrospectives |
-| `/daily` | Daily briefs — one per weekday, one combined for weekends |
-| `/risks` | `active.md` — live risks; `closed.md` — resolved risks |
+| `/daily` | Daily and weekend briefs |
+| `/risks` | `active.md` — live risks; `closed.md` — resolved/closed risks |
+| `/context` | Durable narrative context — profile, relationships, projects summary — see Context Files below |
+| `/time` | Time, expenses, and mileage tracked per client/engagement — one file per client |
 | `<folder>/archive/YYYY/MM/` | Archived files — see Archiving section |
 
 ---
 
 ## File Naming Conventions
 
-- **Meetings:** `YYYY-MM-DD-<short-title>.md` e.g. `2026-03-13-interview-jaguar.md`
+- **Meetings:** `YYYY-MM-DD-<short-title>.md` e.g. `2026-03-13-board-checkin.md`
 - **Transcripts:** `YYYY-MM-DD-<short-title>.transcript.md`
 - **People:** `<firstname-lastname>.md` e.g. `sarah-jones.md`
-- **Applications (projects):** `<company-role-slug>.md` e.g. `jaguar-grad-engineer.md`
-- **CV (master):** `cv/master-cv.md`
-- **CV (tailored):** `cv/<company-role-slug>.md` e.g. `cv/jaguar-grad-engineer.md`
-- **Cover letter:** `cover-letters/<company-role-slug>.md` e.g. `cover-letters/jaguar-grad-engineer.md`
+- **Projects:** `<project-slug>.md` e.g. `series-a-prep.md`
 - **Actions:** `actions-YYYY-Www.md` e.g. `actions-2026-W11.md`
 - **Weekly review:** `weekly/YYYY-Www.md` e.g. `weekly/2026-W11.md`
 - **Weekly brief:** `weekly/YYYY-Www-brief.md` e.g. `weekly/2026-W13-brief.md`
 - **Daily brief:** `daily/YYYY-MM-DD.md` e.g. `daily/2026-03-26.md`
 - **Weekend brief:** `daily/YYYY-Www-weekend.md` e.g. `daily/2026-W13-weekend.md`
-- **Active risks:** `risks/active.md`
-- **Closed risks:** `risks/closed.md`
-
----
-
-## Application Pipeline
-
-### Status progression
-`Researching → Applied → Screening → Interviewing → Offer → Accepted / Declined / Ghosted`
-
-### When a new job is added (paste a job posting or URL):
-1. Create a project file at `projects/<company-role-slug>.md` using the Application Project Template below
-2. Create a tailored CV at `cv/<company-role-slug>.md` based on `cv/master-cv.md` — highlight relevant experience, reorder sections if needed, match keywords from the job description
-3. Create a cover letter at `cover-letters/<company-role-slug>.md`
-4. Add an action to the current week's actions file: "Apply to [Company] — [Role]"
-5. Report back with: what was changed in the CV, what angle the cover letter takes, and any suggestions for the application
-
-### CV Tailoring Rules
-- Always start from `cv/master-cv.md` — never invent experience
-- Reorder bullet points to surface most relevant experience first
-- Mirror language from the job description where it's honest to do so
-- Flag any gaps or weaknesses in the application and suggest how to address them
-- Keep to 1–2 pages max
-- Note what was changed and why at the top of the tailored CV file as a comment block
-
-### Cover Letter Rules
-- Keep to 3–4 short paragraphs: hook, relevant experience, why this company, close
-- Tone: confident but not arrogant, specific not generic
-- Must reference something real about the company — not boilerplate
-- No "I am writing to apply for..." openers — lead with something stronger
-- Flag if Connor needs to research the company more before the letter will land well
-
-### Application Project Template
-
-```markdown
-# <Company> — <Role Title>
-**Status:** Researching | Applied | Screening | Interviewing | Offer | Accepted | Declined | Ghosted
-**Applied:** YYYY-MM-DD (or "Not yet")
-**Closing date:** YYYY-MM-DD (or "Unknown")
-**Source:** [Job board / referral / direct]
-**Job posting:** [URL or "pasted"]
-**CV used:** [cv/<slug>.md]
-**Cover letter:** [cover-letters/<slug>.md]
-
-## Role Summary
-<2–3 sentence summary of what the role is and why it's interesting>
-
-## Why This Role
-<What appeals about this company/role specifically>
-
-## Fit Assessment
-<Where Connor is a strong fit, where there are gaps>
-
-## Interview Stages
-| Stage | Date | Format | Notes |
-|-------|------|--------|-------|
-
-## Decisions Log
-| Date | Decision | Notes |
-|------|----------|-------|
-
-## Open Actions
-<Kept in sync with /actions>
-
-## Notes
-<Running context — newest first>
-```
+- **Risks:** `risks/active.md`
+- **Time & expenses:** `time/<client-slug>.md` e.g. `time/acme-corp.md`
 
 ---
 
@@ -118,11 +50,12 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
    - Use Granola metadata to enrich and cross-reference the transcript where useful
 
 2. **Classify** the meeting type:
-   - `interview` → file under `meetings/YYYY-MM-DD-interview-<company>.md`
-   - `screening` → file under `meetings/YYYY-MM-DD-screening-<company>.md`
-   - `networking` → file under `meetings/YYYY-MM-DD-networking-<person-or-org>.md`
-   - `recruiter` → file under `meetings/YYYY-MM-DD-recruiter-<agency-or-company>.md`
+   - `1:1` → file under `meetings/YYYY-MM-DD-1on1-<person>.md`
+   - `client` → file under `meetings/YYYY-MM-DD-<client>-<topic>.md`
+   - `advisory` → file under `meetings/YYYY-MM-DD-advisory-<org>.md`
+   - `internal` → file under `meetings/YYYY-MM-DD-internal-<topic>.md`
    - `other` → file under `meetings/YYYY-MM-DD-<description>.md`
+   - Add your own types here as your context requires (e.g. `board`, `investor`) — see "Adapting for Your Context" in the README
 
 3. **Save the raw transcript first** — before any analysis:
    - Path: `meetings/transcripts/YYYY-MM-DD-<description>.transcript.md`
@@ -161,9 +94,11 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
    - Update Open Actions
    - Update Notes with any relevant status changes
 
-9. **Scan for risks** — if any risk signals detected, append to `risks/active.md` (see Risk Detection below)
+9. **Log time if billable** — if the meeting is for a client that has a rate card in `/time`, add a time log entry (see Time & Expense Tracking below). Don't wait to be asked.
 
-10. **Report back** — summarise what was extracted and what was updated
+10. **Scan for risks** — if any risk signals detected, append to `risks/active.md` (see Risk Detection below)
+
+11. **Report back** — summarise what was extracted and what was updated
 
 ### Processing Rules
 - Always save the raw transcript BEFORE doing any analysis
@@ -253,9 +188,9 @@ Use the short form `#N` only within the actions file itself (where the week is a
 ```
 
 ### "Close N" shortcut
-When you say **"Close N"** or **"Close N, M, P"**:
+When you say **"Close N"** or **"Close N, M, P"** (with or without week prefix):
 1. Read the current week's actions file
-2. Find each action by its `#N` number
+2. Find each action by its number
 3. Mark it `[x]` and append `| Closed: <today's date>`
 4. Move it from **Open** to **Closed This Week**
 5. Update the relevant `/people` files — remove from Open Actions, note as closed
@@ -318,6 +253,16 @@ Whenever an action is edited — owner change, due date, description — also up
 
 ---
 
+## Time & Expense Tracking
+
+One file per client/engagement at `time/<client-slug>.md`, each opening with a Rate Card (hourly rate, minimum billable increment, mileage rate, other terms) followed by Time Log, Expenses Log, Mileage Log, and Totals tables. Full format and behaviour: `.claude/commands/time.md`.
+
+This works equally well for time you're actually invoicing and for time you're tracking to demonstrate value contributed but not billing (e.g. sweat equity ahead of a funding round). The rate card's **Purpose** field controls which framing is used.
+
+When a client meeting is ingested via the Meeting Ingestion Pipeline and that client has a rate card in `/time`, log the time entry automatically as part of ingestion — apply the client's minimum billable increment, don't wait to be asked. If a new client starts billable work, create their `/time` file with a rate card before logging anything, and flag that it's been created.
+
+---
+
 ## Shortcuts
 
 | Command | Description |
@@ -328,8 +273,31 @@ Whenever an action is edited — owner change, due date, description — also up
 | `/db 2026/03/24` | Display the brief for a specific date |
 | `/wr` | Run or display this week's review |
 | `/wr W12` | Display the review for a specific week |
+| `/time` | Show time/expense totals across all tracked clients |
+| `/time <client>` | Show the time/expense log and totals for one client |
 
-Weekly briefs are **frozen on creation** — never edited after the fact. Compare against `/wr` at end of week to see what changed.
+Weekly briefs are **mostly frozen on creation** — the narrative, meeting schedule, context, and strategic priority sections are never edited after the fact. The one exception: action checkbox states (`[ ]` → `[x]`) in the **Actions Due This Week** and **Overdue Actions** sections may be updated as actions are closed. Actions stay in the section they were assigned to at brief creation, so the week-start plan remains visible. Compare against `/wr` at end of week to see what changed.
+
+---
+
+## Context Files
+
+The `/context` folder holds durable narrative context that should be loaded when generating reports, briefs, or scripts. These files go stale if not maintained — treat them as living documents and update when significant changes occur. A minimal starting set:
+
+| File | Purpose | Load when |
+|------|---------|-----------|
+| `context/profile.md` | Your bio, business, voice/tone | Generating any report, script, or external-facing content |
+| `context/relationships.md` | Key people — role and current state, one line each | Meeting prep, weekly brief, any people-facing task |
+| `context/projects-summary.md` | Narrative summary per active project with risk level | Weekly brief, weekly review, project-related questions |
+
+Add more files here as your context requires (e.g. one profiling each client organisation you're engaged with).
+
+### When to update context files
+
+- **After a significant meeting** — update the relevant file if the state of an engagement changes materially
+- **After weekly review** — update `projects-summary.md` if a project status shifts
+- **When a relationship goes cold or heats up** — update `relationships.md`
+- Do not update context files for routine action closes or minor updates — they are narrative, not a log
 
 ---
 
@@ -347,23 +315,36 @@ When displaying actions, reviews, or any list of tasks — always pretty print:
 
 ---
 
-## Session Start
+## Extending the System — Optional Integrations
 
-At the start of every conversation, remind the user to pull if they haven't already:
+These are patterns from real usage, not required — adapt or drop them depending on your setup.
+
+### Syncing to NotebookLM (or similar) via Drive
+
+If you use a tool like NotebookLM for deeper Q&A over your context, you can have Claude push a standing set of files to a shared Drive folder on request (e.g. a `/sync-drive` shortcut):
 
 ```
-git pull
+Drive folder: <your-folder-name> (<folder-id>) — owned by <your-email>, shared with <your-other-email>
 ```
 
-This is important if the repo is used across multiple devices and either may have changes.
+Upload each context/brief file as plain text (not converted to a Doc) so the ingestion tool reads clean markdown rather than a rendered document. Since most Drive APIs create new files rather than updating in place, periodically clear stale versions from the folder and re-link sources in the target tool.
 
-Also check whether a daily brief exists for today (`daily/YYYY-MM-DD.md`). If it does not, prompt: "No daily brief yet — want me to run `/db`?" Do not create it automatically; wait for confirmation.
+### Enforcing brand/writing guidelines on generated documents
+
+If you produce documents on Claude's behalf — proposals, reports, briefs — you can point it at your own style guide and have every document follow it automatically. Keep the guide file(s) somewhere Claude will read before generating a document (e.g. `context/brand/`), and reference them from here, e.g.:
+
+| File | Covers |
+|------|--------|
+| `context/brand/writing-style-guide.md` | Voice and tone, sentence construction, structure |
+| `context/brand/visual-brand-guidelines.md` | Fonts, colours, headings, tables, footer, logo |
+
+Then list the concrete rules you want enforced — tone, sentence length, fonts, colours, table styling, footer text, whatever matters for your documents — and note any manual follow-up steps needed if the document tool (e.g. Google Docs) can't fully replicate something like a page-1-only logo or a true repeating footer.
 
 ---
 
 ## Friday Reminder
 
-If today is a Friday, remind the user at the start of the conversation to push any uncommitted changes to remote and do any end-of-week housekeeping. Also add an action to the current week's actions file: "End-of-week push and housekeeping" — so it can be checked off.
+If today is a Friday, remind the user at the start of the conversation to push any uncommitted changes to remote and do any other end-of-week housekeeping they've configured (e.g. syncing a separate Claude config repo). Also add an action to the current week's actions file: "End-of-week push and housekeeping" — so it can be checked off.
 
 When preparing the weekly brief on a Monday, check the previous week's actions file for the "End-of-week push and housekeeping" action. If it's missing (e.g. the user had a day off), flag it and ask whether it should be added retrospectively.
 
@@ -407,6 +388,18 @@ Files are archived every Friday to keep the active file structure readable. Each
 
 ---
 
+## Session Start
+
+At the start of every conversation, remind the user to pull the repo if they haven't already — this matters if the setup runs across more than one machine:
+
+```
+git pull
+```
+
+Also check whether a daily brief exists for today (`daily/YYYY-MM-DD.md`). If it does not, prompt: "No daily brief yet — want me to run `/db`?" Do not create it automatically; wait for confirmation.
+
+---
+
 ## Things to Always Do
 
 - Save raw transcripts before analysis
@@ -415,13 +408,16 @@ Files are archived every Friday to keep the active file structure readable. Each
 - When updating files, make targeted edits only
 - Flag ambiguity rather than guess
 - Keep weekly files as running logs — append, never overwrite
+- **Before booking any calendar event** — check for clashes with existing events in the same time slot across your configured calendars. Flag any conflicts before creating the event and ask for confirmation.
 
 ---
 
 ## Commit Convention
 
-After processing meetings and updating files, offer to commit:
+### Content updates (meetings, people, actions, briefs, weekly notes)
+Commit directly to main. Use `pu` as normal.
 
+Commit message format:
 ```
 notes: ingest [meeting-type] YYYY-MM-DD — [short description]
 
@@ -430,37 +426,43 @@ Actions: [N new actions added]
 Risks: [new risks noted | none]
 ```
 
-### "push updates" / "pu" shortcut
-When you say **"push updates"** or **"pu"**, do the following without asking for confirmation:
-1. `git add .`
-2. `git status` — summarise what's changed in plain English
-3. If **content only** (meetings, people, actions, briefs): commit and push directly to main
-4. If **structural changes are included** (CLAUDE.md, commands, folders, conventions): create a branch, commit, push, and display the GitHub PR link
+### Structural changes (CLAUDE.md, commands, new folders, conventions)
+Always use a branch and merge request — never commit structural changes directly to main.
 
-Branch naming for structural changes:
+Branch naming:
 | Type | Pattern | Example |
 |------|---------|---------|
 | Config / CLAUDE.md | `config/description` | `config/weekly-brief-system` |
 | New commands / features | `feature/description` | `feature/daily-brief-commands` |
 
-Review and merge structural changes via GitHub. Do not merge to main directly.
+Push the branch, share the PR link, and wait for it to be merged via GitHub.
+
+### "push updates" / "pu" shortcut
+When you say **"push updates"** or **"pu"**, do the following without asking for confirmation:
+1. `git add .`
+2. `git status` — summarise what's changed in plain English
+3. If **content only**: commit and push directly to main
+4. If **structural changes are included**: create an appropriately named branch, commit, push, and display the GitHub PR link
 
 ---
 
 ## Owner Context
 
-This brain belongs to **Connor Daly** — a 2025 automotive and motorsport engineering graduate actively hunting for entry/graduate level engineering roles, primarily in the automotive sector but open to adjacent industries.
+> **This section is the most important thing to personalise.** Fill it in before you start — it shapes how Claude understands your world and prioritises information.
+
+This brain belongs to **[Your Name]** — [one sentence describing your role, what you're building, and your current focus].
 
 **Key relationships:**
-- None yet — update as recruiters and hiring managers are added
+- [Person name] — [their role and why they matter to you]
+- [Person name] — [their role and why they matter to you]
+- [Add as many as relevant]
 
 **Active priorities:**
-- Land first graduate engineering role — primary focus, automotive sector preferred
-- Build out application pipeline — CV tailoring, cover letters, tracking progress per company
-- Networking — grow contacts in the automotive and engineering space
+- [Priority 1 — e.g. "Series A fundraising — target close Q3 2026"]
+- [Priority 2 — e.g. "Product launch — new enterprise tier"]
+- [Priority 3]
 
 **Preferences:**
-- Friendly, conversational tone
-- Proactively suggest improvements — to CVs, cover letters, applications, and the system itself
-- British English spelling
-- Be direct about what's working and what isn't in applications
+- [Communication style — e.g. "Direct and concise", "British English spelling"]
+- [Document defaults — e.g. "Always create Google Docs, not Word, unless asked"]
+- [Any other working preferences Claude should know]
