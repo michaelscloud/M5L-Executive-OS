@@ -15,7 +15,7 @@ Advise Acme Corp on product strategy and go-to-market for their new enterprise p
 
 ## Open Actions
 
-- [ ] #4 Send revised roadmap proposal | Owner: [Your Name] | Due: 2026-04-01 | Source: [Acme Corp kick-off](../meetings/2026-03-15-client-acme-kickoff.md)
+- [ ] W12#4 Send revised roadmap proposal | Owner: [Your Name] | Due: 2026-04-01 | Source: [Acme Corp kick-off](../meetings/2026-03-15-client-acme-kickoff.md)
 
 ## Notes
 
