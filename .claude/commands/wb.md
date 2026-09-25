@@ -16,7 +16,7 @@ Generate or display the weekly brief.
 `weekly/YYYY-Www-brief.md`
 
 ### If the file already exists
-Display it. Do not modify it — weekly briefs are frozen on creation.
+Display it. Weekly briefs are **mostly frozen on creation** — the narrative, meeting schedule, context, and strategic priority sections are never edited after the fact. The one exception: action checkbox states (`[ ]` → `[x]`) in **Actions Due This Week** and **Overdue Actions** may be updated as actions are closed, so the week-start plan stays visible alongside what actually happened.
 
 ### If the file does not exist (current week only)
 Create it using the format below, then display it.
@@ -33,7 +33,7 @@ Create it using the format below, then display it.
 
 ```markdown
 # Weekly Brief — Week NN, YYYY (Mon DD Mmm – Fri DD Mmm)
-*Generated: YYYY-MM-DD | Frozen — do not edit after creation*
+*Generated: YYYY-MM-DD | Mostly frozen — only action checkboxes update after creation*
 
 ## This Week's Meetings
 

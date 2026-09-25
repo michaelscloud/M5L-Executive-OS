@@ -18,7 +18,7 @@ Kick-off meeting for the Acme Corp enterprise tier engagement. Agreed scope, tim
 3. Fortnightly check-ins agreed — alternating Tuesdays
 
 ## Action Items
-- **[You]:** Send revised roadmap proposal by 2026-04-01 (#1)
+- **[You]:** Send revised roadmap proposal by 2026-04-01 (W12#1)
 - **Sarah:** Confirm eng resource allocation by end of week
 
 ## Risk Signals

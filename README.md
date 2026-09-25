@@ -11,9 +11,10 @@ M5L Executive OS turns Claude Code into a personal chief of staff. You paste a m
 - Saves a raw transcript
 - Extracts actions, decisions, and risks
 - Updates your people files, project files, and action register
+- Logs billable time against a client rate card, if you track that
 - Flags risks and relationship signals
 
-Over time it builds a dense, interconnected knowledge base about your work — and because it lives in a git repo, it's version-controlled, searchable, and portable.
+Over time it builds a dense, interconnected knowledge base about your work — and because it lives in a git repo, it's version-controlled, searchable, and portable. Old material archives itself out of the active folders on a rolling basis, so the working set stays readable.
 
 ---
 
@@ -29,6 +30,7 @@ The key behaviours are:
 | `close N` or `close N, M, P` | Actions marked done, people/project files synced |
 | `weekly review` | Open actions listed, you confirm done ones, summary produced |
 | `prep for [meeting/person]` | Context brief assembled from all relevant files |
+| `/time` or `/time <client>` | Time/expense totals, overall or per client |
 | `pu` | Staged commit and push to remote |
 
 ---
@@ -116,25 +118,30 @@ That's it. Claude will read `CLAUDE.md` and be ready to go.
 │   └── archive/YYYY/MM/           # Archived (completed/abandoned — manual)
 ├── actions/                       # Weekly action registers
 │   └── archive/YYYY/MM/           # Archived weeks (>28 days old)
-├── weekly/                        # Weekly prep notes and retros
+├── weekly/                        # Weekly prep notes, briefs, and retros
 │   └── archive/YYYY/MM/           # Archived weeks (>6 weeks old)
 ├── daily/                         # Daily and weekend briefs
 │   └── archive/YYYY/MM/           # Archived briefs (>28 days)
-└── risks/
-    ├── active.md                  # Live risk register
-    └── closed.md                  # Resolved / closed risks
+├── risks/
+│   ├── active.md                  # Live risk register
+│   └── closed.md                  # Resolved / closed risks
+├── context/                       # Durable narrative context (profile, relationships, projects)
+└── time/                          # Time, expenses, and mileage — one file per client
 ```
 
 ### File naming
 
 | Type | Convention | Example |
 |------|-----------|---------|
-| Meeting | `YYYY-MM-DD-<short-title>.md` | `2026-03-13-layerd-checkin.md` |
-| Transcript | `YYYY-MM-DD-<short-title>.transcript.md` | `2026-03-13-layerd-checkin.transcript.md` |
+| Meeting | `YYYY-MM-DD-<short-title>.md` | `2026-03-13-board-checkin.md` |
+| Transcript | `YYYY-MM-DD-<short-title>.transcript.md` | `2026-03-13-board-checkin.transcript.md` |
 | Person | `<firstname-lastname>.md` | `sarah-jones.md` |
 | Project | `<project-slug>.md` | `series-a-prep.md` |
 | Actions | `actions-YYYY-Www.md` | `actions-2026-W11.md` |
 | Weekly | `YYYY-Www.md` | `2026-W11.md` |
+| Time & expenses | `time/<client-slug>.md` | `time/acme-corp.md` |
+
+Actions are numbered per-week with a week prefix (`W11#1`, `W11#2`...) so they can be referenced unambiguously from people, project, and meeting files. See `CLAUDE.md` for the full format.
 
 ---
 
@@ -176,6 +183,15 @@ prep for the board meeting
 
 Claude pulls context from the relevant people files, recent meetings, open actions, and project files.
 
+### Time tracking
+
+```
+/time
+/time acme-corp
+```
+
+Shows totals across all tracked clients, or the full log and rate card for one. See `.claude/commands/time.md` for the full logging behaviour — it works whether you're actually invoicing or just tracking value contributed.
+
 ### Quick push
 
 ```
@@ -183,6 +199,10 @@ pu
 ```
 
 Stages, commits (with a generated message), and pushes to your remote.
+
+### Archiving
+
+Every Friday, Claude moves anything past its retention window (28 days for meetings/actions/daily, 6 weeks for weekly notes) into an `archive/YYYY/MM/` folder alongside the active one, dated by the file's own date — not the day it was archived. Full rules are in `CLAUDE.md` under "Archiving".
 
 ---
 
@@ -193,7 +213,9 @@ The repo includes example files to show the expected format:
 - `people/example-person.md` — person file template
 - `projects/example-project.md` — project file template
 - `actions/actions-example.md` — weekly actions format
-- `risks/active.md` — risk register format
+- `weekly/example-week.md` — weekly review format
+- `meetings/example-meeting.md` — processed meeting note format
+- `risks/active.md` / `risks/closed.md` — risk register format
 
 Delete or rename these once you've created your own.
 
@@ -211,6 +233,8 @@ Delete or rename these once you've created your own.
 
 **Review your risks file weekly.** Claude appends to it automatically but never resolves risks on its own — that's intentional. Reviewing and closing risks is a useful forcing function.
 
+**Build out `/context` as you go.** It starts empty. A profile, a relationships summary, and a per-project narrative are enough to noticeably improve anything Claude generates on your behalf — reports, briefs, prep notes.
+
 ---
 
 ## Adapting for Your Context
@@ -222,6 +246,7 @@ The `CLAUDE.md` is designed to be modified. Some things you might want to change
 - **Shortcuts** — add your own trigger phrases (e.g. `board prep` → specific behaviour)
 - **Action format** — adjust the fields to match how you think about tasks
 - **File structure** — add folders for your context (e.g. `/board`, `/fundraising`)
+- **Integrations** — see "Extending the System" in `CLAUDE.md` for patterns like syncing context to NotebookLM or enforcing a brand/writing style guide on generated documents
 
 ---
 

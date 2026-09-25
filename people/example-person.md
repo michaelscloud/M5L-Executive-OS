@@ -12,7 +12,7 @@ CPO at Acme Corp. Pragmatic and direct — prefers bullet points over prose. Foc
 
 ## Open Actions
 
-- [ ] #4 Send revised roadmap proposal | Due: 2026-04-01 | Source: [Acme Corp kick-off](../meetings/2026-03-15-client-acme-kickoff.md)
+- [ ] W12#4 Send revised roadmap proposal | Due: 2026-04-01 | Source: [Acme Corp kick-off](../meetings/2026-03-15-client-acme-kickoff.md)
 
 ## Meeting History
 

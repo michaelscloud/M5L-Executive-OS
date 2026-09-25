@@ -1,7 +1,7 @@
 # Actions — Week 12, 2026 (Mar 16–22)
 
 > This is an example file. Rename to `actions-YYYY-Www.md` for the current week.
-> Action numbers are sequential within the week, starting at #1.
+> Action numbers are sequential within the week, starting at #1. Use the short form `#N` only within this file — everywhere else (people, projects, meetings), use the full `W12#N` form to avoid ambiguity.
 
 ## Open
 
