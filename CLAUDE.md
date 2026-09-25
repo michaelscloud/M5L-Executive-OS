@@ -35,7 +35,6 @@ This repo is your personal knowledge base and management system. It tracks meeti
 - **Weekend brief:** `daily/YYYY-Www-weekend.md` e.g. `daily/2026-W13-weekend.md`
 - **Active risks:** `risks/active.md`
 - **Closed risks:** `risks/closed.md`
-- **Risks:** `risks/active.md`
 - **Time & expenses:** `time/<client-slug>.md` e.g. `time/acme-corp.md`
 
 ---
@@ -324,7 +323,6 @@ If you use a tool like NotebookLM for deeper Q&A over your context, you can have
 Drive folder: <your-folder-name> (<folder-id>) — owned by <your-email>, shared with <your-other-email>
 ```
 
-This is important if the repo is used across multiple devices and either may have changes. (If you're not using git/GitHub — see the README — you can ignore this.)
 Upload each context/brief file as plain text (not converted to a Doc) so the ingestion tool reads clean markdown rather than a rendered document. Since most Drive APIs create new files rather than updating in place, periodically clear stale versions from the folder and re-link sources in the target tool.
 
 ### Enforcing brand/writing guidelines on generated documents
@@ -382,7 +380,7 @@ Files are archived every Friday to keep the active file structure readable. Each
 1. Identify files eligible for archiving based on the rules above
 2. Move each file to its `archive/YYYY/MM/` path, where YYYY/MM is taken from the **file's own date** (not today)
 3. Confirm what was moved
-4. Commit as a content update directly to main (or just confirm the moves if you're not using git — see the README)
+4. Commit as a content update directly to main (or just confirm the moves if you're not using git)
 
 ---
 
@@ -395,6 +393,8 @@ git pull
 ```
 
 Also check whether a daily brief exists for today (`daily/YYYY-MM-DD.md`). If it does not, prompt: "No daily brief yet — want me to run `/db`?" Do not create it automatically; wait for confirmation.
+
+(The `git pull` step is optional — only relevant if you're using git for version history/backup. Skip it if you're not.)
 
 ---
 
@@ -412,7 +412,7 @@ Also check whether a daily brief exists for today (`daily/YYYY-MM-DD.md`). If it
 
 ## Commit Convention
 
-*Skip this whole section if you're not using git — see the README for the no-git setup. Everything else in this file works the same either way.*
+*Skip this whole section if you're not using git — it's entirely optional. Everything else in this file works the same either way.*
 
 After processing meetings and updating files, offer to commit:
 ### Content updates (meetings, people, actions, briefs, weekly notes)
@@ -450,7 +450,6 @@ When you say **"push updates"** or **"pu"**, do the following without asking for
 ## Owner Context
 
 > **This section is the most important thing to personalise.** Fill it in before you start — it shapes how Claude understands your world and prioritises information. You can also just tell Claude about yourself in the chat and ask it to write this section for you.
-> **This section is the most important thing to personalise.** Fill it in before you start — it shapes how Claude understands your world and prioritises information.
 
 This brain belongs to **[Your Name]** — [one sentence describing your role, what you're building, and your current focus].
 
@@ -460,8 +459,6 @@ This brain belongs to **[Your Name]** — [one sentence describing your role, wh
 - [Add as many as relevant]
 
 **Active priorities:**
-- [Priority 1]
-- [Priority 2]
 - [Priority 1 — e.g. "Series A fundraising — target close Q3 2026"]
 - [Priority 2 — e.g. "Product launch — new enterprise tier"]
 - [Priority 3]
