@@ -33,6 +33,8 @@ This repo is your personal knowledge base and management system. It tracks meeti
 - **Weekly brief:** `weekly/YYYY-Www-brief.md` e.g. `weekly/2026-W13-brief.md`
 - **Daily brief:** `daily/YYYY-MM-DD.md` e.g. `daily/2026-03-26.md`
 - **Weekend brief:** `daily/YYYY-Www-weekend.md` e.g. `daily/2026-W13-weekend.md`
+- **Active risks:** `risks/active.md`
+- **Closed risks:** `risks/closed.md`
 - **Risks:** `risks/active.md`
 - **Time & expenses:** `time/<client-slug>.md` e.g. `time/acme-corp.md`
 
@@ -46,7 +48,7 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 ### Steps
 
 1. **Fetch / receive** the content
-   - For Granola URLs: use WebFetch to retrieve structured metadata (title, participants, summary, action items) AND accept any pasted transcript text
+   - For Granola URLs: use the `/granola` command (see `.claude/commands/granola.md`) to fetch structured metadata (title, participants, summary, action items) via the API, AND accept any pasted transcript text directly
    - Use Granola metadata to enrich and cross-reference the transcript where useful
 
 2. **Classify** the meeting type:
@@ -120,14 +122,7 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 5. Produce a structured prep brief: context, open items, suggested agenda, things to watch for
 
 ### When asked to "run my weekly review" or "weekly review":
-1. Read the current week's actions file
-2. Scan meetings from that week
-3. Present all open actions as a numbered list with owner and source
-4. Ask to confirm which are done — wait for response
-5. Mark confirmed actions as closed with today's date
-6. Produce a summary: what happened, decisions made, actions closed, actions still open, risks flagged, anything to carry forward
-7. Create or update the weekly note in `/weekly/YYYY-Www.md` with the summary
-8. Offer to commit and push
+Follow the full weekly review process described in `.claude/commands/wr.md` (also invoked via `/wr`) — read the current week's actions file, close confirmed actions, write the summary, then offer to commit and push.
 
 ### When asked for a weekly summary:
 1. Read the current week's actions file
@@ -273,6 +268,8 @@ When a client meeting is ingested via the Meeting Ingestion Pipeline and that cl
 | `/db 2026/03/24` | Display the brief for a specific date |
 | `/wr` | Run or display this week's review |
 | `/wr W12` | Display the review for a specific week |
+| `/granola <url>` | Fetch a Granola note and run it through the meeting ingestion pipeline |
+| `/tidy [file]` | Remove excess blank lines from a file (or the most recently edited one) |
 | `/time` | Show time/expense totals across all tracked clients |
 | `/time <client>` | Show the time/expense log and totals for one client |
 
@@ -327,6 +324,7 @@ If you use a tool like NotebookLM for deeper Q&A over your context, you can have
 Drive folder: <your-folder-name> (<folder-id>) — owned by <your-email>, shared with <your-other-email>
 ```
 
+This is important if the repo is used across multiple devices and either may have changes. (If you're not using git/GitHub — see the README — you can ignore this.)
 Upload each context/brief file as plain text (not converted to a Doc) so the ingestion tool reads clean markdown rather than a rendered document. Since most Drive APIs create new files rather than updating in place, periodically clear stale versions from the folder and re-link sources in the target tool.
 
 ### Enforcing brand/writing guidelines on generated documents
@@ -384,7 +382,7 @@ Files are archived every Friday to keep the active file structure readable. Each
 1. Identify files eligible for archiving based on the rules above
 2. Move each file to its `archive/YYYY/MM/` path, where YYYY/MM is taken from the **file's own date** (not today)
 3. Confirm what was moved
-4. Commit as a content update directly to main
+4. Commit as a content update directly to main (or just confirm the moves if you're not using git — see the README)
 
 ---
 
@@ -414,6 +412,9 @@ Also check whether a daily brief exists for today (`daily/YYYY-MM-DD.md`). If it
 
 ## Commit Convention
 
+*Skip this whole section if you're not using git — see the README for the no-git setup. Everything else in this file works the same either way.*
+
+After processing meetings and updating files, offer to commit:
 ### Content updates (meetings, people, actions, briefs, weekly notes)
 Commit directly to main. Use `pu` as normal.
 
@@ -448,6 +449,7 @@ When you say **"push updates"** or **"pu"**, do the following without asking for
 
 ## Owner Context
 
+> **This section is the most important thing to personalise.** Fill it in before you start — it shapes how Claude understands your world and prioritises information. You can also just tell Claude about yourself in the chat and ask it to write this section for you.
 > **This section is the most important thing to personalise.** Fill it in before you start — it shapes how Claude understands your world and prioritises information.
 
 This brain belongs to **[Your Name]** — [one sentence describing your role, what you're building, and your current focus].
@@ -458,6 +460,8 @@ This brain belongs to **[Your Name]** — [one sentence describing your role, wh
 - [Add as many as relevant]
 
 **Active priorities:**
+- [Priority 1]
+- [Priority 2]
 - [Priority 1 — e.g. "Series A fundraising — target close Q3 2026"]
 - [Priority 2 — e.g. "Product launch — new enterprise tier"]
 - [Priority 3]
