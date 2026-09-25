@@ -1,6 +1,6 @@
-# Job Hunt OS — Claude Code Instructions
+# M5L Executive OS — Claude Code Instructions
 
-This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters, interviews, contacts, actions, and risks.
+This repo is your personal knowledge base and management system. It tracks meetings, people, projects, actions, and risks.
 
 ---
 
@@ -8,12 +8,10 @@ This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters
 
 | Folder | Purpose |
 |--------|---------|
-| `/meetings` | Interview notes and networking call summaries |
+| `/meetings` | Processed meeting notes (structured summaries) |
 | `/meetings/transcripts` | Raw unedited transcripts — never modify these |
-| `/people` | One file per person — recruiters, hiring managers, contacts |
-| `/projects` | One file per job application |
-| `/cv` | Master CV and tailored versions per application |
-| `/cover-letters` | Cover letters, one per application |
+| `/people` | One file per person — family, team, clients, network |
+| `/projects` | One file per initiative or project |
 | `/actions` | Open and closed action items, organised by week |
 | `/weekly` | Weekly prep notes and retrospectives |
 | `/daily` | Daily briefs — one per weekday, one combined for weekends |
@@ -24,13 +22,10 @@ This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters
 
 ## File Naming Conventions
 
-- **Meetings:** `YYYY-MM-DD-<short-title>.md` e.g. `2026-03-13-interview-jaguar.md`
+- **Meetings:** `YYYY-MM-DD-<short-title>.md` e.g. `2026-03-13-board-checkin.md`
 - **Transcripts:** `YYYY-MM-DD-<short-title>.transcript.md`
 - **People:** `<firstname-lastname>.md` e.g. `sarah-jones.md`
-- **Applications (projects):** `<company-role-slug>.md` e.g. `jaguar-grad-engineer.md`
-- **CV (master):** `cv/master-cv.md`
-- **CV (tailored):** `cv/<company-role-slug>.md` e.g. `cv/jaguar-grad-engineer.md`
-- **Cover letter:** `cover-letters/<company-role-slug>.md` e.g. `cover-letters/jaguar-grad-engineer.md`
+- **Projects:** `<project-slug>.md` e.g. `series-a-prep.md`
 - **Actions:** `actions-YYYY-Www.md` e.g. `actions-2026-W11.md`
 - **Weekly review:** `weekly/YYYY-Www.md` e.g. `weekly/2026-W11.md`
 - **Weekly brief:** `weekly/YYYY-Www-brief.md` e.g. `weekly/2026-W13-brief.md`
@@ -38,71 +33,6 @@ This repo is Connor's job hunt brain. It tracks applications, CVs, cover letters
 - **Weekend brief:** `daily/YYYY-Www-weekend.md` e.g. `daily/2026-W13-weekend.md`
 - **Active risks:** `risks/active.md`
 - **Closed risks:** `risks/closed.md`
-
----
-
-## Application Pipeline
-
-### Status progression
-`Researching → Applied → Screening → Interviewing → Offer → Accepted / Declined / Ghosted`
-
-### When a new job is added (paste a job posting or URL):
-1. Create a project file at `projects/<company-role-slug>.md` using the Application Project Template below
-2. Create a tailored CV at `cv/<company-role-slug>.md` based on `cv/master-cv.md` — highlight relevant experience, reorder sections if needed, match keywords from the job description
-3. Create a cover letter at `cover-letters/<company-role-slug>.md`
-4. Add an action to the current week's actions file: "Apply to [Company] — [Role]"
-5. Report back with: what was changed in the CV, what angle the cover letter takes, and any suggestions for the application
-
-### CV Tailoring Rules
-- Always start from `cv/master-cv.md` — never invent experience
-- Reorder bullet points to surface most relevant experience first
-- Mirror language from the job description where it's honest to do so
-- Flag any gaps or weaknesses in the application and suggest how to address them
-- Keep to 1–2 pages max
-- Note what was changed and why at the top of the tailored CV file as a comment block
-
-### Cover Letter Rules
-- Keep to 3–4 short paragraphs: hook, relevant experience, why this company, close
-- Tone: confident but not arrogant, specific not generic
-- Must reference something real about the company — not boilerplate
-- No "I am writing to apply for..." openers — lead with something stronger
-- Flag if Connor needs to research the company more before the letter will land well
-
-### Application Project Template
-
-```markdown
-# <Company> — <Role Title>
-**Status:** Researching | Applied | Screening | Interviewing | Offer | Accepted | Declined | Ghosted
-**Applied:** YYYY-MM-DD (or "Not yet")
-**Closing date:** YYYY-MM-DD (or "Unknown")
-**Source:** [Job board / referral / direct]
-**Job posting:** [URL or "pasted"]
-**CV used:** [cv/<slug>.md]
-**Cover letter:** [cover-letters/<slug>.md]
-
-## Role Summary
-<2–3 sentence summary of what the role is and why it's interesting>
-
-## Why This Role
-<What appeals about this company/role specifically>
-
-## Fit Assessment
-<Where Connor is a strong fit, where there are gaps>
-
-## Interview Stages
-| Stage | Date | Format | Notes |
-|-------|------|--------|-------|
-
-## Decisions Log
-| Date | Decision | Notes |
-|------|----------|-------|
-
-## Open Actions
-<Kept in sync with /actions>
-
-## Notes
-<Running context — newest first>
-```
 
 ---
 
@@ -114,14 +44,14 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 ### Steps
 
 1. **Fetch / receive** the content
-   - For Granola URLs: use WebFetch to retrieve structured metadata (title, participants, summary, action items) AND accept any pasted transcript text
+   - For Granola URLs: use the `/granola` command (see `.claude/commands/granola.md`) to fetch structured metadata (title, participants, summary, action items) via the API, AND accept any pasted transcript text directly
    - Use Granola metadata to enrich and cross-reference the transcript where useful
 
 2. **Classify** the meeting type:
-   - `interview` → file under `meetings/YYYY-MM-DD-interview-<company>.md`
-   - `screening` → file under `meetings/YYYY-MM-DD-screening-<company>.md`
-   - `networking` → file under `meetings/YYYY-MM-DD-networking-<person-or-org>.md`
-   - `recruiter` → file under `meetings/YYYY-MM-DD-recruiter-<agency-or-company>.md`
+   - `1:1` → file under `meetings/YYYY-MM-DD-1on1-<person>.md`
+   - `client` → file under `meetings/YYYY-MM-DD-<client>-<topic>.md`
+   - `advisory` → file under `meetings/YYYY-MM-DD-advisory-<org>.md`
+   - `internal` → file under `meetings/YYYY-MM-DD-internal-<topic>.md`
    - `other` → file under `meetings/YYYY-MM-DD-<description>.md`
 
 3. **Save the raw transcript first** — before any analysis:
@@ -185,14 +115,7 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 5. Produce a structured prep brief: context, open items, suggested agenda, things to watch for
 
 ### When asked to "run my weekly review" or "weekly review":
-1. Read the current week's actions file
-2. Scan meetings from that week
-3. Present all open actions as a numbered list with owner and source
-4. Ask to confirm which are done — wait for response
-5. Mark confirmed actions as closed with today's date
-6. Produce a summary: what happened, decisions made, actions closed, actions still open, risks flagged, anything to carry forward
-7. Create or update the weekly note in `/weekly/YYYY-Www.md` with the summary
-8. Offer to commit and push
+Follow the full weekly review process described in `.claude/commands/wr.md` (also invoked via `/wr`) — read the current week's actions file, close confirmed actions, write the summary, then offer to commit and push.
 
 ### When asked for a weekly summary:
 1. Read the current week's actions file
@@ -328,6 +251,8 @@ Whenever an action is edited — owner change, due date, description — also up
 | `/db 2026/03/24` | Display the brief for a specific date |
 | `/wr` | Run or display this week's review |
 | `/wr W12` | Display the review for a specific week |
+| `/granola <url>` | Fetch a Granola note and run it through the meeting ingestion pipeline |
+| `/tidy [file]` | Remove excess blank lines from a file (or the most recently edited one) |
 
 Weekly briefs are **frozen on creation** — never edited after the fact. Compare against `/wr` at end of week to see what changed.
 
@@ -355,7 +280,7 @@ At the start of every conversation, remind the user to pull if they haven't alre
 git pull
 ```
 
-This is important if the repo is used across multiple devices and either may have changes.
+This is important if the repo is used across multiple devices and either may have changes. (If you're not using git/GitHub — see the README — you can ignore this.)
 
 Also check whether a daily brief exists for today (`daily/YYYY-MM-DD.md`). If it does not, prompt: "No daily brief yet — want me to run `/db`?" Do not create it automatically; wait for confirmation.
 
@@ -403,7 +328,7 @@ Files are archived every Friday to keep the active file structure readable. Each
 1. Identify files eligible for archiving based on the rules above
 2. Move each file to its `archive/YYYY/MM/` path, where YYYY/MM is taken from the **file's own date** (not today)
 3. Confirm what was moved
-4. Commit as a content update directly to main
+4. Commit as a content update directly to main (or just confirm the moves if you're not using git — see the README)
 
 ---
 
@@ -419,6 +344,8 @@ Files are archived every Friday to keep the active file structure readable. Each
 ---
 
 ## Commit Convention
+
+*Skip this whole section if you're not using git — see the README for the no-git setup. Everything else in this file works the same either way.*
 
 After processing meetings and updating files, offer to commit:
 
@@ -449,18 +376,20 @@ Review and merge structural changes via GitHub. Do not merge to main directly.
 
 ## Owner Context
 
-This brain belongs to **Connor Daly** — a 2025 automotive and motorsport engineering graduate actively hunting for entry/graduate level engineering roles, primarily in the automotive sector but open to adjacent industries.
+> **This section is the most important thing to personalise.** Fill it in before you start — it shapes how Claude understands your world and prioritises information. You can also just tell Claude about yourself in the chat and ask it to write this section for you.
+
+This brain belongs to **[Your Name]** — [one sentence describing your role, what you're building, and your current focus].
 
 **Key relationships:**
-- None yet — update as recruiters and hiring managers are added
+- [Person name] — [their role and why they matter to you]
+- [Person name] — [their role and why they matter to you]
+- [Add as many as relevant]
 
 **Active priorities:**
-- Land first graduate engineering role — primary focus, automotive sector preferred
-- Build out application pipeline — CV tailoring, cover letters, tracking progress per company
-- Networking — grow contacts in the automotive and engineering space
+- [Priority 1]
+- [Priority 2]
+- [Priority 3]
 
 **Preferences:**
-- Friendly, conversational tone
-- Proactively suggest improvements — to CVs, cover letters, applications, and the system itself
-- British English spelling
-- Be direct about what's working and what isn't in applications
+- [Communication style — e.g. "Direct and concise", "British English spelling"]
+- [Any other working preferences Claude should know]
