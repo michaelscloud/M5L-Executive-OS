@@ -12,7 +12,7 @@ This repo is your personal knowledge base and management system. It tracks meeti
 | `/meetings/transcripts` | Raw unedited transcripts — never modify these |
 | `/people` | One file per person — family, team, clients, network |
 | `/projects` | One file per initiative or project |
-| `/actions` | Open and closed action items, organised by week |
+| `/actions` | `open.md` — live register of every open action; `actions-YYYY-Www.md` — what was opened and closed each week |
 | `/weekly` | Weekly prep notes and retrospectives |
 | `/daily` | Daily and weekend briefs |
 | `/risks` | `active.md` — live risks; `closed.md` — resolved/closed risks |
@@ -28,6 +28,7 @@ This repo is your personal knowledge base and management system. It tracks meeti
 - **Transcripts:** `YYYY-MM-DD-<short-title>.transcript.md`
 - **People:** `<firstname-lastname>.md` e.g. `sarah-jones.md`
 - **Projects:** `<project-slug>.md` e.g. `series-a-prep.md`
+- **Open actions register:** `actions/open.md` (single file, never archived)
 - **Actions:** `actions-YYYY-Www.md` e.g. `actions-2026-W11.md`
 - **Weekly review:** `weekly/YYYY-Www.md` e.g. `weekly/2026-W11.md`
 - **Weekly brief:** `weekly/YYYY-Www-brief.md` e.g. `weekly/2026-W13-brief.md`
@@ -121,10 +122,10 @@ When you paste a Granola URL, share a meeting link, or paste raw transcript text
 5. Produce a structured prep brief: context, open items, suggested agenda, things to watch for
 
 ### When asked to "run my weekly review" or "weekly review":
-Follow the full weekly review process described in `.claude/commands/wr.md` (also invoked via `/wr`) — read the current week's actions file, close confirmed actions, write the summary, then offer to commit and push.
+Follow the full weekly review process described in `.claude/commands/wr.md` (also invoked via `/wr`) — read `actions/open.md` and the current week's actions file, close confirmed actions, write the summary and Executive Summary, then offer to commit and push.
 
 ### When asked for a weekly summary:
-1. Read the current week's actions file
+1. Read the current week's actions file, and `actions/open.md` for anything still open from earlier weeks
 2. Scan meetings from that week
 3. Produce: what happened, decisions made, actions opened, actions closed, risks flagged, anything carried forward
 
@@ -181,20 +182,32 @@ Use the short form `#N` only within the actions file itself (where the week is a
 - [x] #N <completed action> | Owner: <name> | Closed: <date>
 ```
 
+### Two files, two jobs
+
+| File | Job |
+|------|-----|
+| `actions/open.md` | **The live register.** Every currently-open action, whichever week raised it, grouped by category and always written in full `WNN#N` form. Never archived. This is what "what's open?" means. |
+| `actions/actions-YYYY-Www.md` | **The weekly record.** What was opened and closed in that week. Historical, archived on the normal schedule. Not the live list. |
+
+An open action must appear in **both**: the week file that raised it (so provenance survives) and `open.md` (so it stays visible after that week's file is archived). Numbers are assigned once by the week file and never change.
+
+**Raising an action:** add it to the current week's actions file *and* to the matching category in `open.md`.
+
 ### "Close N" shortcut
 When you say **"Close N"** or **"Close N, M, P"** (with or without week prefix):
-1. Read the current week's actions file
+1. Read `actions/open.md` to find the action — it may have been raised in an earlier week
 2. Find each action by its number
-3. Mark it `[x]` and append `| Closed: <today's date>`
-4. Move it from **Open** to **Closed This Week**
-5. Update the relevant `/people` files — remove from Open Actions, note as closed
-6. Update the relevant `/projects` files — remove from Open Actions, note as closed
-7. Confirm what was closed
+3. In its **week file**, mark it `[x]` and append `| Closed: <today's date>`
+4. Move it from **Open** to **Closed This Week** in that week file
+5. **Remove it from `actions/open.md`** — the register holds only what is still open
+6. Update the relevant `/people` files — remove from Open Actions, note as closed
+7. Update the relevant `/projects` files — remove from Open Actions, note as closed
+8. Confirm what was closed
 
-Do this without asking for confirmation. If a number isn't found, flag it.
+Do this without asking for confirmation. If a number isn't found in `open.md`, check the week files before flagging it — and if it turns up there, that's a register drift, so say so.
 
 ### When actions are updated with new information
-Whenever an action is edited — owner change, due date, description — also update the corresponding entry in the relevant `/people` and `/projects` files to keep them in sync.
+Whenever an action is edited — owner change, due date, description — update the entry in **`actions/open.md`, the week file, and the relevant `/people` and `/projects` files** so all four stay in sync. `open.md` is the version to trust if they ever disagree.
 
 ---
 
@@ -267,6 +280,8 @@ When a client meeting is ingested via the Meeting Ingestion Pipeline and that cl
 | `/db 2026/03/24` | Display the brief for a specific date |
 | `/wr` | Run or display this week's review |
 | `/wr W12` | Display the review for a specific week |
+| `/pod` | Generate a podcast script from this week's review |
+| `/pod W12` | Generate a podcast script for a specific week |
 | `/granola <url>` | Fetch a Granola note and run it through the meeting ingestion pipeline |
 | `/tidy [file]` | Remove excess blank lines from a file (or the most recently edited one) |
 | `/time` | Show time/expense totals across all tracked clients |
@@ -370,7 +385,8 @@ Files are archived every Friday to keep the active file structure readable. Each
 |---------|-------------|
 | Daily briefs (`daily/`) | File date > 28 days ago |
 | Meeting notes (`meetings/`, `meetings/transcripts/`) | File date > 28 days ago |
-| Actions files (`actions/`) | Week end date > 28 days ago |
+| Actions files (`actions/actions-YYYY-Www.md`) | Week end date > 28 days ago |
+| **Open actions register (`actions/open.md`)** | **Never — it is the live list, not a weekly record** |
 | Weekly notes/briefs (`weekly/`) | Week end date > 6 weeks ago |
 | People files (`people/`) | Manual only — when a relationship becomes dormant |
 | Project files (`projects/`) | Manual only — when a project completes or is abandoned |
@@ -378,9 +394,11 @@ Files are archived every Friday to keep the active file structure readable. Each
 ### How to archive on Fridays
 
 1. Identify files eligible for archiving based on the rules above
-2. Move each file to its `archive/YYYY/MM/` path, where YYYY/MM is taken from the **file's own date** (not today)
-3. Confirm what was moved
-4. Commit as a content update directly to main (or just confirm the moves if you're not using git)
+2. **Before archiving an `actions/actions-YYYY-Www.md` file, reconcile it against `actions/open.md`.** For every still-open item in the week file, confirm it appears in the register; add any that are missing, in full `WNN#N` form under the right category. Only then archive the week file. `actions/open.md` is **never archived** — an open action reachable only by opening an old archived file is effectively lost.
+3. Move each file to its `archive/YYYY/MM/` path, where YYYY/MM is taken from the **file's own date** (not today)
+4. **Rewrite inbound links.** Moving a file breaks every relative link elsewhere in the repo that pointed at its old path (evidence links in `risks/active.md`, Meeting History entries in `/people` files, etc.). After moving files, search the repo for links to the old paths and update them to the new `archive/YYYY/MM/...` location rather than leaving them broken.
+5. Confirm what was moved and what links were rewritten
+6. Commit as a content update directly to main (or just confirm the moves if you're not using git)
 
 ---
 

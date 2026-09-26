@@ -27,10 +27,11 @@ The key behaviours are:
 | Trigger | What happens |
 |---------|-------------|
 | Paste a Granola URL or transcript | Full meeting ingestion pipeline runs automatically |
-| `close N` or `close N, M, P` | Actions marked done, people/project files synced |
-| `weekly review` | Open actions listed, you confirm done ones, summary produced |
+| `close N` or `close N, M, P` | Actions marked done, `actions/open.md` and people/project files synced |
+| `weekly review` | Open actions listed (from `actions/open.md`), you confirm done ones, summary + Executive Summary produced |
 | `prep for [meeting/person]` | Context brief assembled from all relevant files |
 | `/time` or `/time <client>` | Time/expense totals, overall or per client |
+| `/pod` | Turns this week's review into a two-host podcast script |
 | `pu` | Staged commit and push to remote |
 
 ---
@@ -116,7 +117,9 @@ That's it. Claude will read `CLAUDE.md` and be ready to go.
 │   └── archive/YYYY/MM/           # Archived (dormant relationships — manual)
 ├── projects/                      # One file per initiative
 │   └── archive/YYYY/MM/           # Archived (completed/abandoned — manual)
-├── actions/                       # Weekly action registers
+├── actions/
+│   ├── open.md                    # Live register — every open action, never archived
+│   ├── actions-YYYY-Www.md        # Weekly record — what was opened/closed that week
 │   └── archive/YYYY/MM/           # Archived weeks (>28 days old)
 ├── weekly/                        # Weekly prep notes, briefs, and retros
 │   └── archive/YYYY/MM/           # Archived weeks (>6 weeks old)
@@ -164,7 +167,7 @@ close 5
 close 3, 7, 12
 ```
 
-Actions are marked done, moved to the closed section, and synced across people and project files.
+Actions are marked done, moved to the closed section in their week file, removed from `actions/open.md`, and synced across people and project files.
 
 ### Weekly review
 
@@ -172,7 +175,15 @@ Actions are marked done, moved to the closed section, and synced across people a
 weekly review
 ```
 
-Claude lists all open actions, asks you to confirm which are done, then produces a summary and updates the weekly file.
+Claude reads `actions/open.md` for the full live picture, asks you to confirm which are done, then produces a summary — with a short Executive Summary up top — and updates the weekly file.
+
+### Podcast script
+
+```
+/pod
+```
+
+Turns this week's review into a natural two-host conversational script (~10-12 minutes), saved to `weekly/YYYY-Www-pod.md`. Handy for listening on a commute instead of reading.
 
 ### Meeting prep
 
@@ -213,6 +224,7 @@ The repo includes example files to show the expected format:
 - `people/example-person.md` — person file template
 - `projects/example-project.md` — project file template
 - `actions/actions-example.md` — weekly actions format
+- `actions/open.md` — live open-actions register (starts with one example entry — clear it out and use it for real)
 - `weekly/example-week.md` — weekly review format
 - `meetings/example-meeting.md` — processed meeting note format
 - `risks/active.md` / `risks/closed.md` — risk register format
