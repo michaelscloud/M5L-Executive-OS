@@ -21,9 +21,13 @@ Display it. Weekly briefs are **mostly frozen on creation** — the narrative, m
 ### If the file does not exist (current week only)
 Create it using the format below, then display it.
 
+0. **Ask for any uncaptured tasks** — before pulling data, ask:
+   > "Before I build the brief — anything on Post-it notes or in your head that needs to go in this week's actions first?"
+   Wait for a response. If items are given, add them to the current week's actions file as new action items (continuing the existing `#N` sequence) *and* to `actions/open.md`, then proceed. If the answer is no, continue immediately.
+
 1. **Check Google Calendar** (if available) for meetings this week — list day, time, title, key attendees
-2. **Read the current week's actions file** (`actions/actions-YYYY-Www.md`) — extract all open actions
-3. **Read previous weeks' action files** — find any overdue open actions (due date has passed)
+2. **Read `actions/open.md`** — the live register of every open action, whichever week raised it. This is the full picture; no need to walk back through previous weeks' files
+3. **Read the current week's actions file** (`actions/actions-YYYY-Www.md`) — for what was raised and closed this week specifically
 4. **Read `risks/active.md`** — include any high or medium risks
 5. **Scan `/projects`** — brief one-liner status for each active project
 
@@ -51,6 +55,10 @@ Create it using the format below, then display it.
 ## Overdue Actions ⚠️
 
 - [ ] #N <action> | Owner: [Your Name] | Due: YYYY-MM-DD | ⚠️ X days overdue
+
+## Open Actions Carrying Forward (from WNN)
+
+<Actions from previous weeks that are still open, grouped by category>
 
 ## Project Snapshot
 

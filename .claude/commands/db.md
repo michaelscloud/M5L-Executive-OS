@@ -23,7 +23,7 @@ Display it as-is.
 Create it using the format below, then display it.
 
 1. **Check Google Calendar** (if available) for meetings on this day — list time, title, key attendees
-2. **Read the current week's actions file** — extract any actions due today or flagged urgent
+2. **Read `actions/open.md`** — the live register of everything open, whichever week raised it. Extract anything due today, overdue, or due within 3 days
 3. **Cross-reference `/people`** for anyone in today's meetings — pull any open actions or context worth noting
 
 ---

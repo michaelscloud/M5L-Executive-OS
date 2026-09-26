@@ -37,7 +37,7 @@ Fetch all notes in parallel where possible.
 For each fetched note, run the full **Meeting Ingestion Pipeline** as defined in CLAUDE.md:
 - Save raw transcript to `meetings/transcripts/`
 - Create processed meeting note in `meetings/`
-- Update `/actions` for the current week
+- Update `/actions` for the current week, and add each new action to `actions/open.md`
 - Update relevant `/people` files
 - Update relevant `/projects` files
 - Scan for risks and append to `risks/active.md` if needed

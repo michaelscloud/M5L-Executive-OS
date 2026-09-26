@@ -2,6 +2,7 @@
 
 > This is an example file. Rename to `actions-YYYY-Www.md` for the current week.
 > Action numbers are sequential within the week, starting at #1. Use the short form `#N` only within this file — everywhere else (people, projects, meetings), use the full `W12#N` form to avoid ambiguity.
+> This is the **weekly record** of what was opened and closed — not the live list. `actions/open.md` is the live register; every action raised here also gets added there, and removed from there (not from here) once closed. See "Two files, two jobs" in `CLAUDE.md`.
 
 ## Open
 
@@ -12,6 +13,4 @@
 ## Closed This Week
 
 - [x] #4 Share product deck with Sarah | Owner: [You] | Closed: 2026-03-18
-
-## Carried Forward
 
